@@ -1,4 +1,4 @@
-# Bioinfo-K-Mers
+# Bioinfo- Ori Keyholes
 
 Obs: esse código foi criado a partir do curso "Biology Meets Programation: Bioinformatic for Beginners", da Universidade da California. Todas as explicações aqui contidas são
 de propriedade dos criadores originais.
