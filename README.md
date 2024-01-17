@@ -67,4 +67,114 @@ Resumidamente, uma função recebe uma entrada e retorna uma saída. Colocar có
                 count = count+1
         return count 
 
+A partir do código feito pelo curso, foi criado um novo código, aprimorado com mais funcões:
+
+    print("Welcome to Finding Ori Keiholes!\n")
+    
+    print("The DnaA binds to the ori section of the genome to kick-start the replication process.")
+    print("To increase the chances of DnaA binding to the ori, the ori will have multiple parts of its few-hundred-letter-long sequence where the DnaA could fit in (like a key into a keyhole).")
+    print("So the small parts (as small as five letters) which form the keyhole appear in high frequency in the ori.\n")
+    
+    print("Let´s begin!\n")
+    
+    scientist_name = ""
+    organism_type = ""
+    sequence = ""
+    
+    def main():
+      global scientist_name,organism_type,sequence
+      print("Whats your name?")
+      scientist_name = input()
+      print("Hello " + scientist_name + "!\n")
+    
+      print("What kind of organism do you want to study today?")
+      print("1 - Virus")
+      print("2 - Bacteria")
+      print("3 - Fungi")
+      print("4 - Archaea")
+      print("5 - Eukaryote")
+      print("6 - Plant")
+      print("7 - Animal")
+      organism_type = input()
+      if organism_type == "1":
+        print("You chose Virus!\n")
+      elif organism_type == "2":
+        print("You chose Bacteria!\n")
+      elif organism_type == "3":
+        print("You chose Fungi!\n")
+      elif organism_type == "4":
+        print("You chose Archaea!\n")
+      elif organism_type == "5":
+        print("You chose Eukaryote!\n")
+      elif organism_type == "6":
+        print("You chose Plant!\n")
+      else:
+        print("You chose Animal!\n")
+     
+      
+      print("Do you wanna name your sequence? Press 1 for 'Yes' or 2 for 'No'")
+      name_for_sequence = int(input())
+      
+      if name_for_sequence == 1:
+        print("What´s the name of your sequence?")
+        sequence = input()
+        print("Okay, your sequence is named", sequence,".\n")
+      else:
+        print("Okay, your sequence is named Sequence.\n")
+      return main
+    
+    Text = ""
+    Pattern = ""
+    Kmer_lenght = ""
+    
+    def info():
+      global Text,Pattern,Kmer_lenght
+      Text = (input("Put the sequence:"))
+      
+      print("Whats is the K-mer lenght?")
+      Kmer_lenght = int(input())
+      print("The choosed K-mer lenght is", Kmer_lenght,"\n")
+      
+      print("Now, put the pattern corresponding to the K-mer lenght you chose.")
+      Pattern = (input("Put a pattern:"))
+    
+      if len(Pattern) > Kmer_lenght:
+        print("The pattern is too long!")
+        Pattern = (input("Put a pattern:"))
+      elif len(Pattern) < Kmer_lenght:
+        print(Pattern, "is too short!")
+        Pattern = (input("Put a pattern:"))
+      else:
+        print("The pattern is correct!\n")
+    
+      return info
+    
+    def PatternCount(Text, Pattern):
+        count = 0
+        for i in range(len(Text)-len(Pattern)+1):
+            if Text[i:i+len(Pattern)] == Pattern:
+                count = count+1
+        return count 
+    
+    main()
+    info()
+    
+    print("The results are:")
+    print("Responsive sciencist:", scientist_name)
+    print("Organsim type:", organism_type)
+    print("Sequence name:", sequence)
+    print("The sequence is:", Text.upper())
+    print("K-mer lenght:", Kmer_lenght)
+    print("Pattern:", Pattern)
+    print("The pattern appears",PatternCount(Text, Pattern),"times.\n")
+    
+    print("Do you want to make another analysis? Press 1 for 'Yes' or 2 for 'No'")
+    another_analysis = int(input())
+    if another_analysis == 1:
+      print("Okay, lets do it!\n")
+      main()
+      info()
+    else:
+      print("Okay, see you next time!")
+  
 
